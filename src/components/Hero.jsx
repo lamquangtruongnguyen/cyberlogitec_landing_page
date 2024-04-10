@@ -1,12 +1,12 @@
-const Hero = ({ setToggleMobileNav }) => {
+const Hero = () => {
   return (
-    <div className="w-full py-16" onClick={() => setToggleMobileNav(false)}>
-      <div className="w-full pb-8 px-[8px] lg:px-[5%] xl:px-[10%] flex flex-col md:flex-row gap-y-10 md:gap-y-0 xl:gap-x-0 mx-auto">
-        <div className="w-full md:w-1/2">
+    <div className="w-full py-5 pb-10 lg:pt-10">
+      <div className="w-full px-[15px] min-[321px]:px-[20px] lg:px-[5%] xl:px-[10%] flex flex-col md:flex-row gap-y-10 md:gap-y-0 xl:gap-x-0">
+        <div className="w-full md:w-1/2 flex">
           <iframe
             src="https://www.youtube.com/embed/rNjUDw5E6tY?autoplay=1"
             frameBorder="0"
-            className="h-[300px] md:h-full w-full md:w-5/6"
+            className="h-[300px] md:h-full w-full md:w-11/12 xl:w-5/6"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             title="Embedded youtube"

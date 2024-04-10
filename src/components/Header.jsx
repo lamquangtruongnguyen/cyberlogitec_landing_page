@@ -1,14 +1,23 @@
 import logo from "../assets/logo.png";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoMenuOutline } from "react-icons/io5";
-import { useState } from "react";
+import { useEffect } from "react";
 import { drops, dropsMobile } from "../data";
 
 const Header = ({ toggleMobileNav, setToggleMobileNav }) => {
+  const handleResize = () => {
+    if (window.innerWidth >= 768) setToggleMobileNav(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="w-full bg-main-blue px-8 lg:px-24 py-6 sticky top-0">
       <header className="flex justify-between items-center">
-        <img src={logo} alt="" />
+        <img src={logo} alt="Cyberlogitec Vietnam Logo" className="w-[130px] min-[320px]:w-[178px]"/>
         <ul className="hidden text-white gap-x-5 list-none min-[768px]:flex">
           {drops.map(drop => (
             <li key={drop.id} className="relative group">
@@ -19,31 +28,35 @@ const Header = ({ toggleMobileNav, setToggleMobileNav }) => {
                 )}
               </div>
               {drop.drop.length > 0 && (
-                <div className="absolute bg-main-blue group-hover:p-3 leading-10 text-[14px] h-0 overflow-hidden group-hover:h-auto group-hover:border-[1px] border-white duration-300">
-                  <a
-                    href="*"
-                    className="underline hover:text-hover-text hover:no-underline transition duration-75"
-                  >
-                    Overview
-                  </a>
-                  <ul>
-                    {drop.drop.map(dropItem => (
-                      <li key={dropItem}>
-                        <a
-                          href="*"
-                          className="pl-4 text-nowrap hover:text-hover-text transition duration-75"
-                        >
-                          {dropItem}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+                <div
+                  className={`absolute bg-main-blue h-0 ${drop?.height} group-hover:transition-[height] ease-in-linear duration-100`}
+                >
+                  <div className="p-3 leading-10 text-[14px] overflow-hidden group-hover:border-solid group-hover:border-[1px] h-full">
+                    <a
+                      href="*"
+                      className="underline hover:text-hover-text hover:no-underline transition duration-75"
+                    >
+                      Overview
+                    </a>
+                    <ul>
+                      {drop.drop.map(dropItem => (
+                        <li key={dropItem}>
+                          <a
+                            href="*"
+                            className="pl-4 text-nowrap hover:text-hover-text transition duration-75"
+                          >
+                            {dropItem}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               )}
             </li>
           ))}
         </ul>
-        <button className="text-main-blue rounded-lg bg-white px-5 py-2 hover:bg-hover-text hover:text-white hidden min-[768px]:block">
+        <button className="text-main-blue rounded-lg bg-white px-5 py-2 hover:bg-hover-text hover:text-white transition duration-100 hidden min-[768px]:block">
           Contact Us
         </button>
         {/* small screen nav */}
@@ -54,7 +67,7 @@ const Header = ({ toggleMobileNav, setToggleMobileNav }) => {
           } transition duration-300`}
         >
           <button
-            className="py-1 px-2 text-white text-[30px]"
+            className="p-2 text-white text-[30px]"
             onClick={() => setToggleMobileNav(!toggleMobileNav)}
           >
             <IoMenuOutline />
@@ -77,25 +90,29 @@ const Header = ({ toggleMobileNav, setToggleMobileNav }) => {
                     )}
                   </div>
                   {drop.drop.length > 0 && (
-                    <div className="absolute bg-main-blue group-hover:p-3 leading-10 text-[14px] h-0 overflow-hidden group-hover:h-auto group-hover:border-[1px] border-white duration-300 z-10 w-5/6">
-                      <a
-                        href="*"
-                        className="underline hover:text-hover-text hover:no-underline transition duration-75"
-                      >
-                        Overview
-                      </a>
-                      <ul>
-                        {drop.drop.map(dropItem => (
-                          <li key={dropItem}>
-                            <a
-                              href="*"
-                              className="pl-4 text-nowrap hover:text-hover-text transition duration-75"
-                            >
-                              {dropItem}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
+                    <div
+                      className={`mt-2 absolute bg-main-blue text-[14px] leading-10 h-0 overflow-hidden ${drop?.height} group-hover:transition-[height] ease-in-linear z-10 min-w-5/6`}
+                    >
+                      <div className="p-3 border-[1px] border-white">
+                        <a
+                          href="*"
+                          className="underline hover:text-hover-text hover:no-underline transition duration-75"
+                        >
+                          Overview
+                        </a>
+                        <ul>
+                          {drop.drop.map(dropItem => (
+                            <li key={dropItem}>
+                              <a
+                                href="*"
+                                className="pl-4 text-nowrap hover:text-hover-text transition duration-75"
+                              >
+                                {dropItem}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   )}
                 </li>

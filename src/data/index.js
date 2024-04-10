@@ -8,16 +8,19 @@ export const dropsMobile = [
     id: 2,
     title: "Services",
     drop: ["Software Development", "Quality Assurance", "Global Service Desk"],
+    height: "group-hover:h-[186px]",
   },
   {
     id: 1,
     title: "Solutions",
     drop: ["Forwarding", "Container Tracking", "Shipping", "Factory"],
+    height: "group-hover:h-[226px]",
   },
   {
     id: 3,
     title: "Careers",
     drop: ["Experienced Hire", "Fresher Training Program"],
+    height: "group-hover:h-[146px]",
   },
 ];
 export const drops = [
@@ -25,16 +28,19 @@ export const drops = [
     id: 1,
     title: "Solutions",
     drop: ["Forwarding", "Container Tracking", "Shipping", "Factory"],
+    height: "group-hover:h-[230px]",
   },
   {
     id: 2,
     title: "Services",
     drop: ["Software Development", "Quality Assurance", "Global Service Desk"],
+    height: "group-hover:h-[195px]",
   },
   {
     id: 3,
     title: "Careers",
     drop: ["Experienced Hire", "Fresher Training Program"],
+    height: "group-hover:h-[150px]",
   },
   {
     id: 4,
