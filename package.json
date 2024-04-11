@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://lamquangtruongnguyen.github.io/cyberlogitec_landing_page/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
